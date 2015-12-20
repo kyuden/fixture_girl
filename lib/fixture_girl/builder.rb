@@ -62,7 +62,6 @@ module FixtureGirl
 
     def write_data_to_files
       delete_yml_files
-      dump_empty_fixtures_for_all_tables
       dump_tables
     end
 
@@ -83,12 +82,6 @@ module FixtureGirl
 
     def say(*messages)
       puts messages.map { |message| "=> #{message}" }
-    end
-
-    def dump_empty_fixtures_for_all_tables
-      tables.each do |table_name|
-        write_fixture_file({}, table_name)
-      end
     end
 
     def dump_tables
