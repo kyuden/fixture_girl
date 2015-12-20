@@ -117,7 +117,6 @@ module FixtureGirl
       ensure
         Date::DATE_FORMATS[:default] = default_date_format
       end
-      say "Built #{fixtures.to_sentence}"
     end
 
     def serialized_value_if_needed(table_klass, attr_name, value)
@@ -140,6 +139,7 @@ module FixtureGirl
       File.open(fixture_file(table_name), 'w') do |file|
         file.write fixture_data.to_yaml
       end
+      puts "   Built #{table_name}.yml"
     end
 
     def fixture_file(table_name)
